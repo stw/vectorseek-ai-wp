@@ -32,7 +32,7 @@
 
 
 <script type="text/javascript">
-    const ws_url = '<?php echo get_option('vectorseek_host'); ?>';
-    const project = <?php echo get_option('vectorseek_project'); ?>;
-    const context = <?php echo get_option('vectorseek_context'); ?>;
+//    const ws_url = '<?php echo get_option('vectorseek_host'); ?>';
+//    const project = <?php echo get_option('vectorseek_project'); ?>;
+//    const context = <?php echo get_option('vectorseek_context'); ?>;
 </script>

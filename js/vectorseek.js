@@ -1,7 +1,28 @@
 jQuery(document).ready(function($) {
-    function websocket_setup(data) {
 
-        const chatSocket = new WebSocket( ws_url + data );
+    function waitForSocketConnection(socket, callback){
+        setTimeout(
+            function () {
+                if (socket.readyState === 1) {
+                    console.log("Connection is made")
+                    if (callback != null){
+                        callback();
+                    }
+                } else {
+                    console.log("wait for connection...")
+                    waitForSocketConnection(socket, callback);
+                }
+
+            }, 5); // wait 5 milisecond for the connection...
+    }
+
+    function websocket_setup(data) {
+        const ws_url = data.host;
+        const project = data.project;
+        const context = data.context;
+        const token = data.api_key;
+
+        const chatSocket = new WebSocket( ws_url + token );
 
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
@@ -32,6 +53,14 @@ jQuery(document).ready(function($) {
             $('.spinner').removeClass('d-none');
             chatSocket.send(JSON.stringify({'project': project, 'query': query, 'context': context}));
         });
+
+        var query = $('.wp-block-search__input').val();
+        if (query) {
+            $('.spinner').removeClass('d-none');
+            waitForSocketConnection(chatSocket, function(){
+                chatSocket.send(JSON.stringify({'project': project, 'query': query, 'context': context}));
+            });
+        }
     }
 
     $.ajax({ url: '/wp-json/vectorseek/v2/key', success: websocket_setup });

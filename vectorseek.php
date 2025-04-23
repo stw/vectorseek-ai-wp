@@ -20,8 +20,8 @@ class VectorSeek_Connector {
         add_action('admin_init', array($this, 'register_settings'));
 
         $this->host = get_option('vectorseek_host');
-        $this->host = get_option('vectorseek_project');
-        $this->host = get_option('vectorseek_context');
+        $this->project = get_option('vectorseek_project');
+        $this->context = get_option('vectorseek_context');
         $this->api_key = get_option('vectorseek_api_key');
     }
 
@@ -43,6 +43,23 @@ class VectorSeek_Connector {
         return $this->api_key;
     }
 
+    public function project() {
+        return $this->project;
+    }
+
+    public function context() {
+        return $this->context;
+    }
+
+    public function all() {
+        return array(
+            'host' => $this->host,
+            'api_key' => $this->api_key,
+            'project' => $this->project,
+            'context' => $this->context
+        );
+    }
+
     public function register_settings() {
         register_setting('vectorseek_settings', 'vectorseek_host');
         register_setting('vectorseek_settings', 'vectorseek_project');
@@ -59,7 +76,7 @@ $vectorseek_connector = new VectorSeek_Connector();
 
 function vectorseek_api_key() {
     $vectorseek_connector = new VectorSeek_Connector();
-    return $vectorseek_connector->api_key();
+    return $vectorseek_connector->all();
 }
 
 add_action( 'rest_api_init', function () {
