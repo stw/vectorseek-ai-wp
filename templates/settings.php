@@ -11,10 +11,6 @@
                 <td><input size="50" type="text" name="vectorseek_host" value="<?php echo esc_attr(get_option('vectorseek_host')); ?>" /></td>
             </tr>
             <tr>
-                <th scope="row">Project ID</th>
-                <td><input size="50" type="text" name="vectorseek_project" value="<?php echo esc_attr(get_option('vectorseek_project')); ?>" /></td>
-            </tr>
-            <tr>
                 <th scope="row">Context Length</th>
                 <td><input size="50" type="text" name="vectorseek_context" value="<?php echo esc_attr(get_option('vectorseek_context')); ?>" /></td>
             </tr>
@@ -22,6 +18,15 @@
                 <th scope="row">API Key</th>
                 <td><input size="50" type="password" name="vectorseek_api_key" value="<?php echo esc_attr(get_option('vectorseek_api_key')); ?>" /></td>
             </tr>
+
+            <tr>
+                <td colspan="2">This is the class of the search form:</td>
+            </tr>
+            <tr>
+                <th scope="row">Search Form Class</th>
+                <td><input size="50" type="text" name="vectorseek_search_class" value="<?php echo esc_attr(get_option('vectorseek_search_class')); ?>" /></td>
+            </tr>
+
         </table>
         <?php submit_button(); ?>
     </form>
@@ -29,4 +34,13 @@
 
 <p>Creates shortcode [vectorseek] to be included on pages</p>
 
+<p>Visit <a target="_blank" href="https://vectorseek.ai">VectorSeek.ai</a> to setup your project.</p>
 
+<h3>To include in search results on the search page, use the below snippet:</h3>
+
+<textarea cols="90" rows="5" disabled>
+<style>.d-none { display: none; }</style>
+<div><img decoding="async" class="vectorseek_spinner d-none" height="30" width="30" src="https://vectorseek.ai/static/images/loading.gif"></div>
+<div id="vectorseek_results"></div>
+<div id="vectorseek_context"></div>
+</textarea>

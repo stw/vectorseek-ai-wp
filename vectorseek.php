@@ -2,7 +2,7 @@
 /**
  * Plugin Name: VectorSeek.ai 
  * Description: Connect WordPress to VectorSeek.ai
- * Version: 0.1
+ * Version: 0.2
  * Author: Stephen Walker <swalker@walkertek.com>, VectorSeek
  */
 
@@ -13,16 +13,18 @@ if (!defined('ABSPATH')) {
 
 class VectorSeek_Connector {
     private $host;
+    private $context;
     private $api_key;
+    private $search_class;
 
     public function __construct() {
         add_action('admin_menu', array($this, 'add_admin_menu'));
         add_action('admin_init', array($this, 'register_settings'));
 
         $this->host = get_option('vectorseek_host');
-        $this->project = get_option('vectorseek_project');
         $this->context = get_option('vectorseek_context');
         $this->api_key = get_option('vectorseek_api_key');
+        $this->search_class = get_option('vectorseek_search_class');
     }
 
     public function add_admin_menu() {
@@ -35,36 +37,20 @@ class VectorSeek_Connector {
         );
     }
 
-    public function host() {
-        return $this->host;
-    }
-
-    public function api_key() {
-        return $this->api_key;
-    }
-
-    public function project() {
-        return $this->project;
-    }
-
-    public function context() {
-        return $this->context;
-    }
-
     public function all() {
         return array(
             'host' => $this->host,
             'api_key' => $this->api_key,
-            'project' => $this->project,
-            'context' => $this->context
+            'context' => $this->context,
+            'search_class' => $this->search_class,
         );
     }
 
     public function register_settings() {
         register_setting('vectorseek_settings', 'vectorseek_host');
-        register_setting('vectorseek_settings', 'vectorseek_project');
         register_setting('vectorseek_settings', 'vectorseek_context');
         register_setting('vectorseek_settings', 'vectorseek_api_key');
+        register_setting('vectorseek_settings', 'vectorseek_search_class');
     }
 
     public function settings_page() {
