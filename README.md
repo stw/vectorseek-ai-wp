@@ -14,7 +14,7 @@ Requires PHP: 7.4
 
 License: GPLv2 or later
 
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 
 VectorSeek brings powerful private AI search to your WordPress site. Index your content and provide fast, intelligent answers to users — without exposing your data to public models.
