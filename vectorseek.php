@@ -2,7 +2,7 @@
 /**
  * Plugin Name: VectorSeek.ai 
  * Description: Connect WordPress to VectorSeek.ai
- * Version: 0.2
+ * Version: 0.0.4
  * Author: Stephen Walker <swalker@walkertek.com>, VectorSeek
  */
 
@@ -74,7 +74,12 @@ add_action( 'rest_api_init', function () {
 
 add_action('wp_enqueue_scripts','vectorseek_init');
 function vectorseek_init() {
-    wp_enqueue_script( 'vectorseek-js', plugins_url( '/js/vectorseek.js', __FILE__ ), array('jquery'));
+    wp_enqueue_script( 'vectorseek-cookies-js', plugins_url( '/js/js.cookie.min.js', __FILE__ ), array('jquery'));
+    wp_enqueue_script( 'vectorseek-commonmark-js', plugins_url( '/js/commonmark.js', __FILE__ ), array('jquery'));
+    wp_enqueue_script( 'vectorseek-info-js', plugins_url( '/js/info.js', __FILE__ ), array('jquery'));
+    wp_enqueue_script( 'vectorseek-js', plugins_url( '/js/vectorseek.js', __FILE__ ), array('vectorseek-cookies-js'));
+    wp_enqueue_style( 'vectorseek-css', plugins_url( '/css/vectorseek.css', __FILE__ ), array());
+    wp_enqueue_style( 'vectorseek-spinner-css', plugins_url( '/css/spinner.css', __FILE__ ), array());
 }
 
 function vectorseek_page($atts) {

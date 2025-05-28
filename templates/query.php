@@ -1,29 +1,61 @@
-<style>
-.d-none { display: none; }
-</style>
+<section id="vectorseek_querybox" class="vs-section">
+    <div class="vs-container">
 
-<div class="row" id="vectorseek_error"/>
+        <form>
+            <div class="vs-row">
+                <div class="vs-col vs-mb-3">
+                    <textarea id="vectorseek_query" class="vs-form-control" name="query" cols="80" rows="2" placeholder="Ask a question..."></textarea>
+                </div>
 
-<div class="row" id="vectorseek_query_row">
-    <div class="col" >
-        <form class="">
-            <input class="" id="vectorseek_query" placeholder="" value="" type="search" name="query" required />
-            <button class="" type="submit" aria-label='Search' id="vectorseek_submit">Query</button>
-            <br/><br/>
-            <img class="vectorseek_spinner d-none" height="30" width="30" src="/wp-content/plugins/vectorseek.ai/images/loading.gif"/>
+                <div class="vs-col vs-mb-3">
+                    <button id="vectorseek_submit" type="button" class="vs-btn vs-btn-outline-primary">
+                        <span class="text">Submit</span>
+                    </button>
+                </div>
+            </div>
         </form>
+
+        <div id="vectorseek_error" class="vs-row p-3 d-none">
+            <div class="vs-col">
+                <div class="message message-danger">
+                    An error has occurred, <a href=".">please try again</a>.
+                </div>
+            </div>
+        </div>
+
+        <div id="vectorseek_loader-container" class="d-none">
+            <div class="vectorseek_loader-bar"></div>
+            <div class="vectorseek_loader-bar"></div>
+            <div class="vectorseek_loader-bar"></div>
+        </div> 
+
+        <div id="vectorseek_results" class="pb-3 pt-3" aria-live="polite">
+        </div>
+
+        <div class="vs-row vs-mb-3">
+            <div class="vs-col">
+                <div class="vs-row">
+                    <div class="vs-col-6">
+                        <div id="vectorseek_rate" class="vectorseek_rate d-none">
+                            <div class="vectorseek_ratetext">
+                                <p>AI results. Please confirm accuracy.<br>
+                                    Was this answer helpful?</p>
+                            </div>
+                            <div id="vectorseek_rating">
+                                <input type="hidden" name="qlog_id" id="qlog_id" value=""/>
+                                <a id="vectorseek_up" href="#"><img src="https://vectorseek.ai/static/images/thumb-up.svg" alt="Thumbs Up" class="vectorseek_thumbs_up" role="button" tabindex="0"></a>
+                                <a id="vectorseek_down" href="#"><img src="https://vectorseek.ai/static/images/thumb-down.svg" alt="Thumbs Down" class="vectorseek_thumbs_down" role="button" tabindex="0"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vs-col-6 float-end">
+                        <div class="vectorseek_pb">
+                            AI search powered by <a href="https://VectorSeek.ai" target="_blank" rel="noopener noreferrer">VectorSeek.ai</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-
-<div class="row">
-    <div id="vectorseek_results" class="col-12 results">
-    </div>
-</div>
-
-<div class="row d-none">
-    <div id="vectorseek_context" class="col-12 context">
-    </div>
-</div>
-
-
+</section>
 
