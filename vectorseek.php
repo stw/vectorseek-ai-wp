@@ -1,15 +1,19 @@
 <?php
 /**
- * Plugin Name: VectorSeek.ai 
+ * Plugin Name: VectorSeek AI Search 
  * Description: Connect WordPress to VectorSeek.ai
  * Version: 0.0.4
  * Author: Stephen Walker <swalker@walkertek.com>, VectorSeek
+ * License: GPLv3 or later
+ * License URI: https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
 // Exit if accessed directly
 if (!defined('ABSPATH')) {
     exit;
 }
+
+$vectorseek_version = '0.0.4';
 
 class VectorSeek_Connector {
     private $host;
@@ -47,10 +51,15 @@ class VectorSeek_Connector {
     }
 
     public function register_settings() {
-        register_setting('vectorseek_settings', 'vectorseek_host');
-        register_setting('vectorseek_settings', 'vectorseek_context');
-        register_setting('vectorseek_settings', 'vectorseek_api_key');
-        register_setting('vectorseek_settings', 'vectorseek_search_class');
+        $args = array(
+            'sanitize_callback' => 'sanitize_text_field',
+            'type' => 'string',
+            'default' => NULL,
+        );
+        register_setting('vectorseek_settings', 'vectorseek_host', $args);
+        register_setting('vectorseek_settings', 'vectorseek_context', $args);
+        register_setting('vectorseek_settings', 'vectorseek_api_key', $args);
+        register_setting('vectorseek_settings', 'vectorseek_search_class', $args);
     }
 
     public function settings_page() {
@@ -74,12 +83,12 @@ add_action( 'rest_api_init', function () {
 
 add_action('wp_enqueue_scripts','vectorseek_init');
 function vectorseek_init() {
-    wp_enqueue_script( 'vectorseek-cookies-js', plugins_url( '/js/js.cookie.min.js', __FILE__ ), array('jquery'));
-    wp_enqueue_script( 'vectorseek-commonmark-js', plugins_url( '/js/commonmark.js', __FILE__ ), array('jquery'));
-    wp_enqueue_script( 'vectorseek-info-js', plugins_url( '/js/info.js', __FILE__ ), array('jquery'));
-    wp_enqueue_script( 'vectorseek-js', plugins_url( '/js/vectorseek.js', __FILE__ ), array('vectorseek-cookies-js'));
-    wp_enqueue_style( 'vectorseek-css', plugins_url( '/css/vectorseek.css', __FILE__ ), array());
-    wp_enqueue_style( 'vectorseek-spinner-css', plugins_url( '/css/spinner.css', __FILE__ ), array());
+    wp_enqueue_script( 'vectorseek-cookies-js', plugins_url( '/js/js.cookie.min.js', __FILE__ ), array('jquery'), $vectorseek_version, array('in_footer'=>true));
+    wp_enqueue_script( 'vectorseek-commonmark-js', plugins_url( '/js/commonmark.js', __FILE__ ), array('jquery'), $vectorseek_version, array('in_footer'=>true));
+    wp_enqueue_script( 'vectorseek-info-js', plugins_url( '/js/info.js', __FILE__ ), array('jquery'), $vectorseek_version, array('in_footer'=>true));
+    wp_enqueue_script( 'vectorseek-js', plugins_url( '/js/vectorseek.js', __FILE__ ), array('vectorseek-cookies-js'), $vectorseek_version, array('in_footer'=>true)); 
+    wp_enqueue_style( 'vectorseek-css', plugins_url( '/css/vectorseek.css', __FILE__ ), array(), $vectorseek_version);
+    wp_enqueue_style( 'vectorseek-spinner-css', plugins_url( '/css/spinner.css', __FILE__ ), array(), $vectorseek_version);
 }
 
 function vectorseek_page($atts) {

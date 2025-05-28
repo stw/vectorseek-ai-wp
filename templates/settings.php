@@ -40,7 +40,11 @@
 
 <textarea cols="90" rows="5" disabled>
 <style>.d-none { display: none; }</style>
-<div><img decoding="async" class="vectorseek_spinner d-none" height="30" width="30" src="https://vectorseek.ai/static/images/loading.gif"></div>
+<div id="vectorseek_loader-container" class="mt-3">
+    <div class="vectorseek_loader-bar"></div>
+    <div class="vectorseek_loader-bar"></div>
+    <div class="vectorseek_loader-bar"></div>
+</div> 
 <div id="vectorseek_results"></div>
 <div id="vectorseek_context"></div>
 </textarea>

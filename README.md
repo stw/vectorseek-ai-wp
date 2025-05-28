@@ -2,22 +2,23 @@
 
 Contributors: vectorseek
 
-Tags: private AI search, AI search, site search, semantic search, vector search, open source AI, content indexing
+Tags: private AI search, AI search, site search, semantic search
 
 Requires at least: 5.6
 
-Tested up to: 6.8.1
+Tested up to: 6.8
 
-Stable tag: 0.0.3
+Stable tag: 0.0.4
 
 Requires PHP: 7.4
 
-License: GPLv2 or later
+License: GPLv3 or later
 
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
+VectorSeek brings powerful private AI search to your WordPress site. Index your
+content and provide fast, intelligent answers to users.
 
-VectorSeek brings powerful private AI search to your WordPress site. Index your content and provide fast, intelligent answers to users — without exposing your data to public models.
 
 ## Description
 
