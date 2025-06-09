@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 <div class="wrap">
     <h1>VectorSeek.ai Settings</h1>
     <form method="post" action="options.php">
@@ -39,7 +40,6 @@
 <h3>To include in search results on the search page, use the below snippet:</h3>
 
 <textarea cols="90" rows="5" disabled>
-<style>.d-none { display: none; }</style>
 <div id="vectorseek_loader-container" class="mt-3">
     <div class="vectorseek_loader-bar"></div>
     <div class="vectorseek_loader-bar"></div>

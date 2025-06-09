@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 <section id="vectorseek_querybox" class="vs-section">
     <div class="vs-container">
 

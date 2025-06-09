@@ -2,7 +2,7 @@
 /**
  * Plugin Name: VectorSeek AI Search 
  * Description: Connect WordPress to VectorSeek.ai
- * Version: 0.0.4
+ * Version: 0.0.5
  * Author: Stephen Walker <swalker@walkertek.com>, VectorSeek
  * License: GPLv3 or later
  * License URI: https://www.gnu.org/licenses/lgpl-3.0.html
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$vectorseek_version = '0.0.4';
+$vectorseek_version = '0.0.5';
 
 class VectorSeek_Connector {
     private $host;
@@ -78,6 +78,7 @@ add_action( 'rest_api_init', function () {
   register_rest_route( 'vectorseek/v2', '/key', array(
     'methods' => 'GET',
     'callback' => 'vectorseek_api_key',
+    'permission_callback' => '__return_true',
   ));
 });
 

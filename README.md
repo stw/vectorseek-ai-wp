@@ -1,6 +1,6 @@
 # VectorSeek AI Search
 
-Contributors: vectorseek
+Contributors: stephentwalker
 
 Tags: private AI search, AI search, site search, semantic search
 
@@ -8,7 +8,7 @@ Requires at least: 5.6
 
 Tested up to: 6.8
 
-Stable tag: 0.0.4
+Stable tag: 0.0.5
 
 Requires PHP: 7.4
 
@@ -81,12 +81,45 @@ Yes, you can add your url with sitemap as one of the urls, ex. https://vectorsee
 2. VectorSeek account settings
 3. Example of AI-generated answers from site content
 
+## Libraries Used / Github Repo 
+
+### CommonMark 
+
+[CommonMark](https://github.com/commonmark/commonmark.js/) 
+
+### js-cookie
+
+[js-cookie](https://github.com/js-cookie/js-cookie) 
+
+### vectorseek-ai-wp
+
+[vectorseek-ai-wp](https://github.com/stw/vectorseek-ai-wp) 
+
+## External Services 
+
+### ipify.org 
+
+This plugin connects to an API to obtain your IP address information, it's
+requested to allow troubleshooting of any issues connecting to the vectorseek.ai servers.
+
+It sends the user's IP to the vectoseek.ai servers along with query information to allow 
+identification of where queries are originating.
+
+This service is provided by [ipify](https://www.ipify.org/) and is not shared with any third parties.
+
 ## Changelog
+
+### 0.0.5 
+
+* Updates to be compatible with wordpress guidelines. 
 
 ### 0.0.4
 * Initial release: private AI search with semantic indexing and chatbot widget
 
 ## Upgrade Notice
+
+### 0.0.5 
+First version compatible with wordpress guidelines
 
 ### 0.0.4
 First stable release — secure AI search for your WordPress content.
