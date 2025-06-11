@@ -107,6 +107,9 @@ identification of where queries are originating.
 
 This service is provided by [ipify](https://www.ipify.org/) and is not shared with any third parties.
 
+[Terms of Service](https://geo.ipify.org/terms-of-service)
+[Privacy Policy](https://geo.ipify.org/privacy-policy)
+
 ## Changelog
 
 ### 0.0.5 
