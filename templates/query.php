@@ -50,8 +50,7 @@
                         </div>
                     </div>
                     <div class="vs-col-6 float-end">
-                        <div class="vectorseek_pb">
-                            AI search powered by <a href="https://VectorSeek.ai" target="_blank" rel="noopener noreferrer">VectorSeek.ai</a>
+                        <div id="vectorseek_pb" class="vectorseek_pb">
                         </div>
                     </div>
                 </div>
