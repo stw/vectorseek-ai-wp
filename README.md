@@ -8,7 +8,7 @@ Requires at least: 5.6
 
 Tested up to: 6.8
 
-Stable tag: 0.0.5
+Stable tag: 0.0.6
 
 Requires PHP: 7.4
 
@@ -112,6 +112,10 @@ This service is provided by [ipify](https://www.ipify.org/) and is not shared wi
 
 ## Changelog
 
+### 0.0.6 
+
+* Fix warnings 
+
 ### 0.0.5 
 
 * Updates to be compatible with wordpress guidelines. 
@@ -120,6 +124,10 @@ This service is provided by [ipify](https://www.ipify.org/) and is not shared wi
 * Initial release: private AI search with semantic indexing and chatbot widget
 
 ## Upgrade Notice
+
+### 0.0.6 
+
+Fix plugin warnings 
 
 ### 0.0.5 
 First version compatible with wordpress guidelines
