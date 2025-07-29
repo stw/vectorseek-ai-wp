@@ -100,7 +100,7 @@ jQuery(document).ready(function($) {
         $(document).on('click', '#vectorseek_submit', function(e) {
             e.preventDefault();
             var query = $('#vectorseek_query').val();
-            var context = 10;
+            var context = 20;
             var uuid = Cookies.get('uuid');
             if (! uuid) {
                 uuid = uuidv4();
