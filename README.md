@@ -8,7 +8,7 @@ Requires at least: 5.6
 
 Tested up to: 6.8
 
-Stable tag: 0.0.6
+Stable tag: 0.0.7
 
 Requires PHP: 7.4
 
@@ -111,6 +111,10 @@ This service is provided by [ipify](https://www.ipify.org/) and is not shared wi
 [Privacy Policy](https://geo.ipify.org/privacy-policy)
 
 ## Changelog
+
+### 0.0.7
+
+- update to streaming-markdown parser
 
 ### 0.0.6 
 

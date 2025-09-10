@@ -1,3 +1,5 @@
+import * as smd from "./vendor/smd.min.js";
+
 jQuery(document).ready(function($) {
 
     function waitForSocketConnection(socket, callback){
@@ -36,16 +38,20 @@ jQuery(document).ready(function($) {
         const search_class = data.search_class;
         var message = '';
 
-        proto = 'wss://';
+        var proto = 'wss://';
         if (window.location.protocol == 'http:') {
             proto = 'ws://';
         }
-        url = proto + host + '/ws/project/' + token;
+        var url = proto + host + '/ws/project/' + token;
 
         const chatSocket = new WebSocket( url );
 
-        var reader = new commonmark.Parser();
-        var writer = new commonmark.HtmlRenderer();
+        const element  = document.getElementById("vectorseek_results");
+        const renderer = smd.default_renderer(element);
+        const parser   = smd.parser(renderer);
+
+        // var reader = new commonmark.Parser();
+        // var writer = new commonmark.HtmlRenderer();
 
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
@@ -54,23 +60,35 @@ jQuery(document).ready(function($) {
 
             $('#vectorseek_loader-container').css('display', 'none');
 
-            if (data.message) {
-                var parsed = reader.parse(message);
-                var result = writer.render(parsed);
-                $('#vectorseek_results').html(result);
-            }
+            DOMPurify.sanitize(message);
 
-            if (data.contexts) {
-                $('#vectorseek_context').append('<div class="row pt-3 pb-3"><b>Context:</b></div>');
-                data.contexts.forEach(function(c) {
-                    $("#vectorseek_context").append('<div class="col pb-2">' + c + '</div>');
-                });
+            if (DOMPurify.removed.length) {
+                console.log("Found insecure code");
+                smd.parser_end(parser);
+            } else {
+                if (data.message) {
+                    smd.parser_write(parser, data.message);
+                }
 
-                $('#vectorseek_rate').removeClass('d-none');
-            }
+                // if (data.message) {
+                //     var parsed = reader.parse(message);
+                //     var result = writer.render(parsed);
+                //     $('#vectorseek_results').html(result);
+                // }
 
-            if (data.qlog_id) {
-                $('#qlog_id').val(data.qlog_id);
+                if (data.contexts) {
+                    $('#vectorseek_context').append('<div class="row pt-3 pb-3"><b>Context:</b></div>');
+                    data.contexts.forEach(function(c) {
+                        $("#vectorseek_context").append('<div class="col pb-2">' + c + '</div>');
+                    });
+
+                    $('#vectorseek_rate').removeClass('d-none');
+                }
+
+                if (data.qlog_id) {
+                    smd.parser_end(parser);
+                    $('#qlog_id').val(data.qlog_id);
+                }
             }
 
         };

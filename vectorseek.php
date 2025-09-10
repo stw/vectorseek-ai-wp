@@ -2,7 +2,7 @@
 /**
  * Plugin Name: VectorSeek AI Search 
  * Description: Connect WordPress to VectorSeek.ai
- * Version: 0.0.6
+ * Version: 0.0.7
  * Author: Stephen Walker <swalker@walkertek.com>, VectorSeek
  * License: GPLv3 or later
  * License URI: https://www.gnu.org/licenses/lgpl-3.0.html
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define( 'VECTORSEEK_VERSION', '0.0.6' );
+define( 'VECTORSEEK_VERSION', '0.0.7' );
 
 if ( ! class_exists( 'VectorSeek_Connector' ) ) {
 
@@ -86,10 +86,14 @@ if ( ! class_exists( 'VectorSeek_Connector' ) ) {
 
     add_action('wp_enqueue_scripts','vectorseek_init');
     function vectorseek_init() {
-        wp_enqueue_script( 'vectorseek-cookies-js', plugins_url( '/js/js.cookie.min.js', __FILE__ ), array('jquery'), VECTORSEEK_VERSION, array('in_footer'=>true));
-        wp_enqueue_script( 'vectorseek-commonmark-js', plugins_url( '/js/commonmark.js', __FILE__ ), array('jquery'), VECTORSEEK_VERSION, array('in_footer'=>true));
+        wp_enqueue_script( 'vectorseek-cookies-js', plugins_url( '/js/vendor/js.cookie.min.js', __FILE__ ), array('jquery'), VECTORSEEK_VERSION, array('in_footer'=>true));
+        /* wp_enqueue_script( 'vectorseek-commonmark-js', plugins_url( '/js/vendor/commonmark.js', __FILE__ ), array('jquery'), VECTORSEEK_VERSION, array('in_footer'=>true)); */
+        wp_enqueue_script( 'vectorseek-purify-js', plugins_url( '/js/vendor/purify.min.js', __FILE__ ), array('jquery'), VECTORSEEK_VERSION, array('in_footer'=>true));
+        // wp_enqueue_script( 'vectorseek-smd-js', plugins_url( '/js/vendor/smd.min.js', __FILE__ ), array('jquery'), VECTORSEEK_VERSION, array('in_footer'=>true, 'type'=> 'module'));
+        wp_enqueue_script_module( 'vectorseek-smd-js', plugins_url( '/js/vendor/smd.min.js', __FILE__ )); // , array('jquery'), VECTORSEEK_VERSION, array('in_footer'=>true, 'type'=> 'module'));
         wp_enqueue_script( 'vectorseek-info-js', plugins_url( '/js/info.js', __FILE__ ), array('jquery'), VECTORSEEK_VERSION, array('in_footer'=>true));
-        wp_enqueue_script( 'vectorseek-js', plugins_url( '/js/vectorseek.js', __FILE__ ), array('vectorseek-cookies-js'), VECTORSEEK_VERSION, array('in_footer'=>true)); 
+        // wp_enqueue_script( 'vectorseek-js', plugins_url( '/js/vectorseek.js', __FILE__ ), array('vectorseek-cookies-js'), VECTORSEEK_VERSION, array('in_footer'=>true, 'type'=>'module')); 
+        wp_enqueue_script_module( 'vectorseek-js', plugins_url( '/js/vectorseek.js', __FILE__ )); // , array('vectorseek-cookies-js'), VECTORSEEK_VERSION, array('in_footer'=>true, 'type'=>'module')); 
         wp_enqueue_style( 'vectorseek-css', plugins_url( '/css/vectorseek.css', __FILE__ ), array(), VECTORSEEK_VERSION);
         wp_enqueue_style( 'vectorseek-spinner-css', plugins_url( '/css/spinner.css', __FILE__ ), array(), VECTORSEEK_VERSION);
     }
