@@ -91,9 +91,9 @@ Yes, you can add your url with sitemap as one of the urls, ex. https://vectorsee
 
 [js-cookie](https://github.com/js-cookie/js-cookie)
 
-### vectorseek-ai-wp
+### vectorseek-ai-search
 
-[vectorseek-ai-wp](https://github.com/stw/vectorseek-ai-wp)
+[vectorseek-ai-search](https://github.com/stw/vectorseek-ai-search)
 
 ## External Services
 
