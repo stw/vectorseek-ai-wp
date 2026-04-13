@@ -114,7 +114,7 @@ This service is provided by [ipify](https://www.ipify.org/) and is not shared wi
 
 ### 0.0.8
 
-- update to show sources and confidence
+- update to display sources and confidence levels
 
 ### 0.0.7
 
