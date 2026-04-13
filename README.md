@@ -6,9 +6,9 @@ Tags: private AI search, AI search, site search, semantic search
 
 Requires at least: 5.6
 
-Tested up to: 6.8
+Tested up to: 6.9
 
-Stable tag: 0.0.7
+Stable tag: 0.0.8
 
 Requires PHP: 7.4
 
@@ -55,13 +55,13 @@ Choose to include VectorSeek in your search results page, or add a VectorSeek qu
 ## Frequently Asked Questions
 
 ### How does this work?
-VectorSeek indexes your site content and hosts a private vector database. When users ask questions, it retrieves and summarizes the most relevant answers from your indexed content using hosted LLMs or public LLMs if you choose. 
+VectorSeek indexes your site content and hosts a private vector database. When users ask questions, it retrieves and summarizes the most relevant answers from your indexed content using hosted LLMs or public LLMs if you choose.
 
 ### Is my data safe?
 Yes. All processing occurs through secure, private infrastructure. Your content
 is not used to train public AI models (unless you choose a public model).
 Multiple private and public Providers and Models are available in your
-VectorSeek account and you have the ability to choose from any model available. 
+VectorSeek account and you have the ability to choose from any model available.
 
 ### Can I control which content is indexed?
 Yes — you can include or exclude specific post types, categories, or pages in the plugin settings.
@@ -70,7 +70,7 @@ Yes — you can include or exclude specific post types, categories, or pages in 
 Absolutely. PDFs, pages, blog posts, and most custom post types are supported.
 
 ### Can I crawl sub-domains?
-Yes, you can crawl multiple domains and sub-domains as part of a single project. All crawled content will be used to generate answers. 
+Yes, you can crawl multiple domains and sub-domains as part of a single project. All crawled content will be used to generate answers.
 
 ### Can I use sitemap.xml?
 Yes, you can add your url with sitemap as one of the urls, ex. https://vectorseek.ai/sitemap.xml
@@ -81,28 +81,28 @@ Yes, you can add your url with sitemap as one of the urls, ex. https://vectorsee
 2. VectorSeek account settings
 3. Example of AI-generated answers from site content
 
-## Libraries Used / Github Repo 
+## Libraries Used / Github Repo
 
-### CommonMark 
+### CommonMark
 
-[CommonMark](https://github.com/commonmark/commonmark.js/) 
+[CommonMark](https://github.com/commonmark/commonmark.js/)
 
 ### js-cookie
 
-[js-cookie](https://github.com/js-cookie/js-cookie) 
+[js-cookie](https://github.com/js-cookie/js-cookie)
 
 ### vectorseek-ai-wp
 
-[vectorseek-ai-wp](https://github.com/stw/vectorseek-ai-wp) 
+[vectorseek-ai-wp](https://github.com/stw/vectorseek-ai-wp)
 
-## External Services 
+## External Services
 
-### ipify.org 
+### ipify.org
 
 This plugin connects to an API to obtain your IP address information, it's
 requested to allow troubleshooting of any issues connecting to the vectorseek.ai servers.
 
-It sends the user's IP to the vectoseek.ai servers along with query information to allow 
+It sends the user's IP to the vectoseek.ai servers along with query information to allow
 identification of where queries are originating.
 
 This service is provided by [ipify](https://www.ipify.org/) and is not shared with any third parties.
@@ -112,28 +112,32 @@ This service is provided by [ipify](https://www.ipify.org/) and is not shared wi
 
 ## Changelog
 
+### 0.0.8
+
+- update to show sources and confidence
+
 ### 0.0.7
 
 - update to streaming-markdown parser
 
-### 0.0.6 
+### 0.0.6
 
-* Fix warnings 
+* Fix warnings
 
-### 0.0.5 
+### 0.0.5
 
-* Updates to be compatible with wordpress guidelines. 
+* Updates to be compatible with wordpress guidelines.
 
 ### 0.0.4
 * Initial release: private AI search with semantic indexing and chatbot widget
 
 ## Upgrade Notice
 
-### 0.0.6 
+### 0.0.6
 
-Fix plugin warnings 
+Fix plugin warnings
 
-### 0.0.5 
+### 0.0.5
 First version compatible with wordpress guidelines
 
 ### 0.0.4

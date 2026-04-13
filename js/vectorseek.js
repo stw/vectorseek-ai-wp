@@ -96,7 +96,7 @@ jQuery(document).ready(function($) {
         chatSocket.onclose = function(e) {
             console.log('Chat Socket Closed Unexpectedly');
             $('#vectorseek_loader-container').hide();
-            $('#vectorseek_error').html('<b>Connection failed, please <a href=".">refresh the page</a> and try again.</p>');
+            $('#vectorseek_error').html('<p>Connection failed, please <a href=".">refresh the page</a> and try again.</p>');
             $('#vectorseek_error').removeClass('d-none');
         };
 
