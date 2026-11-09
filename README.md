@@ -8,7 +8,7 @@ Requires at least: 5.6
 
 Tested up to: 6.9
 
-Stable tag: 0.0.8
+Stable tag: 0.0.10
 
 Requires PHP: 7.4
 
@@ -35,6 +35,13 @@ Automatically pulls and indexes your WordPress pages, posts, PDFs, and other con
 
 💬 **Customizable Search Embedding**
 Choose to include VectorSeek in your search results page, or add a VectorSeek query box with a simple shortcode.
+
+
+## Voice (optional)
+
+Enable **Voice** in *Settings > VectorSeek.ai* (and under *Advanced Settings > Voice* on your VectorSeek.ai project) to show a microphone in the search box. Visitors can dictate a question, it is submitted automatically, and the answer is read aloud. A speaker button mutes spoken answers.
+
+**Privacy note:** speech recognition uses the visitor's browser. Depending on the browser, audio may be sent to the browser vendor's speech service. In browsers without built-in speech recognition (for example Brave or Firefox), the recorded audio is sent to VectorSeek.ai to be transcribed. If the project owner selects an AI voice, answer text is sent to VectorSeek.ai to be converted to speech. Nothing is sent unless the visitor clicks the microphone.
 
 ## Features
 
@@ -111,6 +118,18 @@ This service is provided by [ipify](https://www.ipify.org/) and is not shared wi
 [Privacy Policy](https://geo.ipify.org/privacy-policy)
 
 ## Changelog
+
+### 0.0.10
+- scripts are now versioned with the plugin version and file changes, so browsers can no longer mix old and new copies after an update
+- voice: a Stop button interrupts a spoken answer and frees the microphone; clicking the microphone while it listens on its own ends the voice conversation
+- voice: error messages (for example "No speech detected") now stay visible instead of disappearing immediately
+
+### 0.0.9
+- voice interaction (optional): microphone dictation and spoken answers
+- ongoing conversation (optional, project setting): questions and answers stay on the page
+- hands-free voice conversation: in conversation mode the microphone listens again after a spoken answer, when the browser allows it; click the microphone while it is listening on its own to end the conversation
+- answer ratings now sent to your VectorSeek host with a per-answer token
+- clearer message when the site is not in the project's Allowed Origins
 
 ### 0.0.8
 

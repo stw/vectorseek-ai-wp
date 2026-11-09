@@ -28,6 +28,17 @@
                 <td><input size="50" type="text" name="vectorseek_search_class" value="<?php echo esc_attr(get_option('vectorseek_search_class')); ?>" /></td>
             </tr>
 
+            <tr>
+                <th scope="row">Voice</th>
+                <td>
+                    <label>
+                        <input type="checkbox" name="vectorseek_voice" value="1" <?php checked( get_option('vectorseek_voice'), '1' ); ?> />
+                        Show a microphone so visitors can ask by voice and hear answers read aloud
+                    </label>
+                    <p class="description">Also requires voice to be enabled on your project at VectorSeek.ai (Advanced Settings &rarr; Voice). The browser may send speech audio to its speech provider, or to VectorSeek.ai for transcription in browsers without built-in speech recognition.</p>
+                </td>
+            </tr>
+
         </table>
         <?php submit_button(); ?>
     </form>
